@@ -1,0 +1,13 @@
+# 깃 3 영역
+## 작업 영역
+### working directory(folder), working tree
+* 탐색기 상의 폴더 하부
+## 스테이징 영역
+### staging area, index
+* 저장소의 .git 폴더의 파일 index
+## 깃 저장소(git repository)
+### 저장소
+* 저장소의 .git 폴더의 여러 정보
+
+### 첫 커밋이 완료된 현재 상태
+<img src="사진/그래프.PNG" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="설치"></img><br/>
