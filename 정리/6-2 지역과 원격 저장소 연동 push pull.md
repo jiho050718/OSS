@@ -43,3 +43,28 @@ Push와 Pull의 개념
 - Push 명령어:
   - `$ git push origin topic`
   - 인자를 생략할 수 있는 방법도 있다.
+
+Fetch와 Merge의 과정
+- Fetch는 원격 저장소의 정보를 로컬 저장소로 가져오는 명령이다.
+- Merge는 가져온 정보를 로컬 저장소의 내용과 병합하는 과정이다.
+- Fetch 명령어:
+  - `$ git fetch <remote>`
+  - `$ git fetch origin`
+- Merge 명령어:
+  - `$ git merge origin/main`
+
+원격 브랜치 확인 방법
+- 원격 브랜치를 확인하기 위해서는 `git remote show origin` 명령어를 사용한다.
+- 원격 저장소 정보:
+  - Fetch URL과 Push URL이 동일하다.
+  - HEAD branch와 Remote branch를 확인할 수 있다.
+
+원격 저장소 복제 및 연동
+- 원격 저장소 복제는 `$ git clone https://github.com/atom/atom.git` 명령어로 수행된다.
+- 원격 저장소 수정 사항을 Pull로 지역 저장소로 가져오는 방법:
+  - `$ git pull origin main`
+- Fetch로 지역 저장소로 가져와 병합하기:
+  - `$ git fetch origin main`
+  - `$ git merge origin/main`
+- Push로 원격 저장소에 보내기:
+  - `$ git push origin main`
