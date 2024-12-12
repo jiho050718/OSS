@@ -1,70 +1,82 @@
-비밀번호 인증 대체 방법
-- 비밀번호 인증은 2021년 8월 13일 이후로 지원이 중단되었다.
-- 사용자는 개인 접근 토큰을 사용해야 하며, 이는 GitHub 계정마다 생성해야 한다.
-- 에러 메시지:
-  - "Support for password authentication was removed on August 13, 2021."
-  - "The requested URL returned error: 403"
-- 이러한 변경은 강화된 인증 방법으로, 비밀번호 대신 토큰을 사용하여 접근하도록 요구된다.
+원격 저장소 생성 및 복제
+- 원격 저장소 생성:
+  - GitHub에서 원격 저장소를 생성할 수 있다.
+  - 저장소 이름은 git-clone으로 설정한다.
+  
+- 복제 명령어:
+  - `$ git clone [복사된-주소]` 명령어를 사용하여 원격 저장소를 지역 저장소에 복제한다.
+  - 원격 저장소와 동일한 이름으로 복제할 수 있다.
 
-개인 접근 토큰 생성 절차
-- GitHub.com에 로그인한 후, 우측 메뉴에서 Settings를 선택해야 한다.
-- 프로파일 settings 메뉴에서 왼쪽 메뉴의 가장 하단에 있는 Developers settings를 클릭한다.
-- Personal access tokens에서 Generate new token을 선택하여 새로운 토큰을 생성한다.
-- 생성된 토큰은 잘 보관해야 하며, 후에 토큰이 표시되지 않기 때문에 주의가 필요하다.
+Vscode로 원격 저장소 복제
+- Vscode에서의 복제:
+  - Vscode를 통해 원격 저장소를 복제하는 방법을 배운다.
+  - 복제할 원격 저장소의 주소를 복사한 후, Vscode에서 명령어를 실행한다.
 
-원격 저장소 수정 후 Pull
-- 깃허브 원격 저장소 수정 후 pull은 지역 저장소에서 원격 저장소의 수정을 반영하는 과정이다.
-- Push와 Pull의 개념:
-  - Push: 지역 저장소의 변경 사항을 원격 저장소로 전송하는 과정이다.
-  - Pull: 원격 저장소의 변경 사항을 지역 저장소로 가져오는 과정이다.
-- 일상생활의 비유: 밀기와 끌기, 올리기와 내리기로 설명할 수 있다.
+- 명령어 예시:
+  - `$ git clone [복사된-주소] [새로운-폴더명]`을 사용하여 특정 폴더에 복제할 수 있다.
+  - `$ git clone [복사된-주소] .` 명령어로 현재 폴더에 바로 복제할 수 있다.
 
-Push와 Pull의 개념
-- Push와 Pull은 Git의 기본적인 작업 흐름을 나타낸다.
-- Push:
-  - 지역 저장소에서 원격 저장소로 코드 변경 이력을 전송하는 명령이다.
-  - 명령어 예시: `$ git push <저장소별칭명> <브랜치명>`
-- Pull:
-  - 원격 저장소의 수정을 지역 저장소에 반영하는 과정이다.
-  - 명령어 예시: `$ git pull origin main`
+원격 저장소 클론 개념
+- 클론 개념:
+  - 원격 저장소를 지역 저장소에 복제하는 과정을 클론이라고 한다.
+  - 공개된 저장소는 소유와 관계없이 누구나 접근할 수 있다.
 
-인증 오류 및 해결 방법
-- 윈도우에서 Push 중 오류가 발생할 수 있으며, 이는 인증 오류와 관련이 있다.
-- 에러 메시지:
-  - "remote: Permission to …"
-  - "fatal: unable to access 'https://github.com/….git/': The requested URL returned error: 403"
-- 해결 방법:
-  - PAT(Personal Access Token)를 사용하여 연결해야 한다.
-  - 명령어 예시: `$ git push -u https://{token}@github.com/{username}/{repo_name}.git`
+- 주요 원격 저장소:
+  - GitHub(github.com)
+  - Bitbucket(bitbucket.org)
 
-지역 저장소에서 Push
-- 지역 저장소에서 Push는 원격 저장소로 변경 사항을 전송하는 과정이다.
-- 쓰기 권한이 있어야 Push가 가능하며, 자신의 저장소나 다른 사람의 저장소라면 협업자로 등록되어야 한다.
-- Push 명령어:
-  - `$ git push origin topic`
-  - 인자를 생략할 수 있는 방법도 있다.
+원격 저장소 주소 복사
+- 주소 복사 방법:
+  - GitHub에서 저장소 주소를 복사하는 방법을 설명한다.
+  - Code 클릭 후, HTTPS 주소를 복사한다.
 
-Fetch와 Merge의 과정
-- Fetch는 원격 저장소의 정보를 로컬 저장소로 가져오는 명령이다.
-- Merge는 가져온 정보를 로컬 저장소의 내용과 병합하는 과정이다.
-- Fetch 명령어:
-  - `$ git fetch <remote>`
-  - `$ git fetch origin`
-- Merge 명령어:
-  - `$ git merge origin/main`
+- 복사된 주소 사용:
+  - 복사된 주소를 사용하여 지역 저장소에 복제 명령어를 실행한다.
+  - 예시: `$ git clone https://github.com/ai7dnn/git-clone.git`
 
-원격 브랜치 확인 방법
-- 원격 브랜치를 확인하기 위해서는 `git remote show origin` 명령어를 사용한다.
-- 원격 저장소 정보:
-  - Fetch URL과 Push URL이 동일하다.
-  - HEAD branch와 Remote branch를 확인할 수 있다.
+복제 명령어 실행
+- 복제 명령어:
+  - `$ git clone 저장소주소[저장소폴더명]` 명령어를 사용하여 지역 저장소에 복사한다.
+  
+- 복사 확인:
+  - 복사된 폴더를 확인하여 복제 성공 여부를 점검한다.
+  - 예시: `Cloning into 'git-clone'...` 메시지가 나타나면 복제 성공이다.
 
-원격 저장소 복제 및 연동
-- 원격 저장소 복제는 `$ git clone https://github.com/atom/atom.git` 명령어로 수행된다.
-- 원격 저장소 수정 사항을 Pull로 지역 저장소로 가져오는 방법:
-  - `$ git pull origin main`
-- Fetch로 지역 저장소로 가져와 병합하기:
-  - `$ git fetch origin main`
-  - `$ git merge origin/main`
-- Push로 원격 저장소에 보내기:
-  - `$ git push origin main`
+원격 저장소 이름 관리
+- 원격 저장소 별칭 관리:
+  - `$ git remote` 명령어로 원격 저장소 목록을 확인한다.
+  - 기본 이름 origin이 설정된다.
+
+- 별칭 추가 및 수정:
+  - `$ git remote add origin URL` 명령어로 원격 저장소 별칭을 추가한다.
+  - `$ git remote rename origin org` 명령어로 이름을 수정할 수 있다.
+  - `$ git remote rm org` 명령어로 별칭을 삭제할 수 있다.
+
+유명 오픈소스 소프트웨어 복제
+- 유명 OSS 목록:
+  - GitHub에서 유명한 오픈소스 소프트웨어의 주소를 제공한다.
+  - 예시:
+    - Vscode: `https://github.com/microsoft/vscode`
+    - Atom: `https://github.com/atom/atom`
+    - Git: `https://github.com/git/git`
+    - TensorFlow: `https://github.com/tensorflow/tensorflow`
+
+- 복제 시 주의사항:
+  - 네트워크가 느릴 경우 복제가 어려울 수 있다.
+  - 적절한 폴더를 생성하여 복제 작업을 진행한다.
+
+Vscode에서 복제 실행
+- Vscode에서의 복제:
+  - Vscode를 열고 적당한 폴더를 생성한 후, 복제 작업을 진행한다.
+  
+- 복제 성공 확인:
+  - 복제 성공 후, 복제된 파일을 확인하여 작업이 완료되었는지 점검한다.
+
+원격 저장소 관리 요약
+- 원격 저장소 생성 및 관리:
+  - GitHub에 원격 저장소를 생성하고, 이를 관리하는 방법을 요약한다.
+  
+- 주요 명령어:
+  - `$ git clone https://github.com/atom/atom.git` 명령어로 원격 저장소를 복제한다.
+  - `$ git remote -v` 명령어로 원격 저장소 목록을 확인한다.
+  - `$ git remote show origin` 명령어로 원격 저장소의 상세 정보를 확인한다.
